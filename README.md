@@ -2,19 +2,23 @@
 
 A note taking application.
 
+---
+
 ## Usage
 
 Interactive mode:
 
-`notes`
+`note`
 
 Create general note:
 
-`notes 'work on your projects'`
+`note 'work on your projects'`
 
 Create note under a topic:
 
-`notes -t garden 'weed the strawberries'`
+`note -t garden 'weed the strawberries'`
+
+---
 
 ## TODO
 
