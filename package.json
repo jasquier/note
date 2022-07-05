@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "lint": "eslint --fix .",
+    "lint:check": "eslint --max-warnings 0 .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "style": "prettier --prose-wrap 'always' --write .",
-    "style:check": "prettier --prose-wrap 'always' --check .",
-    "lint": "eslint --fix .",
-    "lint:check": "eslint --max-warnings 0 ."
+    "style:check": "prettier --prose-wrap 'always' --check ."
   },
   "keywords": [],
   "author": "John A. Squier <jasquier@gmail.com>",
@@ -18,13 +18,13 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
     "prettier": "^2.2.1",
     "typescript": "^4.2.4"
   },
   "dependencies": {
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.0.1",
-    "eslint": "^8.19.0",
     "minimist": "^1.2.6"
   }
 }
