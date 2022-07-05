@@ -6,9 +6,9 @@ A note taking application.
 
 ## Usage
 
-Interactive mode:
+Display help:
 
-`note`
+`note [--help]`
 
 Create general note:
 
@@ -18,11 +18,23 @@ Create note under a topic:
 
 `note -t garden 'weed the strawberries'`
 
+List all notes:
+
+`note --list`
+
+List all notes under a topic:
+
+`note --list -t <topic>`
+
+List all topics:
+
+`note --list -t`
+
 ---
 
 ## TODO
 
-- [ ] Process command line args.
+- [x] Process command line args.
 - [ ] Database decisions.
 - [ ] Database integration.
 - [ ] Topics and the -t flag.
