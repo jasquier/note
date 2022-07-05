@@ -30,6 +30,6 @@ Create note under a topic:
 - [ ] List notes.
 - [ ] List notes under a topic.
 - [ ] Capitalize and punctuation if missing.
-- [ ] Setup typescript.
-- [ ] Setup development environment.
+- [x] Setup typescript.
+- [x] Setup development environment.
 - [ ] Port your old HOME/notes.

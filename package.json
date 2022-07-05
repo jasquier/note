@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "style": "prettier --prose-wrap 'always' --write .",
     "style:check": "prettier --prose-wrap 'always' --check .",
@@ -20,6 +22,9 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "eslint": "^8.19.0"
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.0.1",
+    "eslint": "^8.19.0",
+    "minimist": "^1.2.6"
   }
 }
