@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS 'notes' (
+    'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+    'content' TEXT NOT NULL,
+    'timestamp' DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS 'topics' (
+    'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+    'name' TEXT NOT NULL,
+    'timestamp' DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS 'notes_topics' (
+    'note_id' INTEGER,
+    'topic_id' INTEGER,
+    FOREIGN KEY (note_id) REFERENCES notes(id),
+    FOREIGN KEY (topic_id) REFERENCES topics(id)
+);
+
