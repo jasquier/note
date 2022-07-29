@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "lint": "eslint --fix .",
     "lint:check": "eslint --max-warnings 0 .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "style": "prettier --prose-wrap 'always' --write .",
     "style:check": "prettier --prose-wrap 'always' --check ."
   },
@@ -16,15 +15,25 @@
   "author": "John A. Squier <jasquier@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@jest/types": "^28.1.3",
+    "@types/jest": "^28.1.6",
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.0.1",
+    "@types/sqlite3": "^3.1.8",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "eslint": "^8.19.0",
+    "jest": "^28.1.3",
     "prettier": "^2.2.1",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@types/minimist": "^1.2.2",
-    "@types/node": "^18.0.1",
-    "minimist": "^1.2.6"
+    "@types/debug": "^4.1.7",
+    "debug": "^4.3.4",
+    "minimist": "^1.2.6",
+    "sqlite3": "^5.0.8"
   }
 }

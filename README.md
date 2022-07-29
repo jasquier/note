@@ -35,9 +35,10 @@ List all topics:
 ## TODO
 
 - [x] Process command line args.
-- [ ] Database decisions.
-- [ ] Database integration.
-- [ ] Topics and the -t flag.
+- [x] Database decisions.
+- [x] Database integration.
+- [x] Saving notes
+- [x] Topics and the -t flag.
 - [ ] List topics.
 - [ ] List notes.
 - [ ] List notes under a topic.
