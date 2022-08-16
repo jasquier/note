@@ -1,5 +1,6 @@
 import { Database, RunResult } from "sqlite3";
 import debug from "debug";
+import { InsertStatement, Row } from "./types.js";
 
 const log = debug("save");
 
@@ -61,12 +62,10 @@ function selectRowId(
   log(`selectRowId(): sql - ${sql}, values - ${values}`);
 
   return new Promise((resolve, reject) => {
-    function cb(err: Error | null, row: Row) {
+    db.get(sql, ...values, (err: Error | null, row: Row) => {
       if (err) reject(err);
       resolve(row?.id);
-    }
-
-    db.get(sql, ...values, cb);
+    });
   });
 }
 
@@ -79,17 +78,9 @@ function insert(
   log(`insert(): sql - ${sql}, values - ${values}`);
 
   return new Promise((resolve, reject) => {
-    function cb(this: RunResult, err: Error) {
+    db.run(sql, ...values, function (this: RunResult, err: Error | null) {
       if (err) reject(err);
       resolve(this.lastID);
-    }
-
-    db.run(sql, ...values, cb);
+    });
   });
 }
-
-interface Row {
-  id: number;
-}
-
-type InsertStatement = `INSERT INTO ${string} (${string}) VALUES (${string})`;
