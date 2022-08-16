@@ -61,8 +61,7 @@ function selectRowId(
   log(`selectRowId(): sql - ${sql}, values - ${values}`);
 
   return new Promise((resolve, reject) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    function cb(err: Error | null, row: any) {
+    function cb(err: Error | null, row: Row) {
       if (err) reject(err);
       resolve(row?.id);
     }
@@ -87,6 +86,10 @@ function insert(
 
     db.run(sql, ...values, cb);
   });
+}
+
+interface Row {
+  id: number;
 }
 
 type InsertStatement = `INSERT INTO ${string} (${string}) VALUES (${string})`;

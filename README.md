@@ -40,9 +40,9 @@ List all topics:
 - [x] Saving notes
 - [x] Topics and the -t flag.
 - [ ] List topics.
-- [ ] List notes.
-- [ ] List notes under a topic.
-- [ ] Capitalize and punctuation if missing.
+- [x] List notes.
+- [x] List notes under a topic.
 - [x] Setup typescript.
 - [x] Setup development environment.
 - [ ] Port your old HOME/notes.
+- [ ] Extract types to an index file

@@ -1,7 +1,7 @@
 import sqlite3, { Database } from "sqlite3";
-import fs from "fs/promises";
-import path from "path";
-import { saveNote } from "./save";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { saveNote } from "./save.js";
 
 let db: Database;
 

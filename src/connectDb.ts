@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import sqlite3, { Database } from "sqlite3";
 
 let db: Database;
