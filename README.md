@@ -37,12 +37,13 @@ List all topics:
 - [x] Process command line args.
 - [x] Database decisions.
 - [x] Database integration.
-- [x] Saving notes
+- [x] Saving notes.
 - [x] Topics and the -t flag.
 - [ ] List topics.
 - [x] List notes.
 - [x] List notes under a topic.
+- [ ] Test all listings.
 - [x] Setup typescript.
 - [x] Setup development environment.
 - [ ] Port your old HOME/notes.
-- [ ] Extract types to an index file
+- [ ] Extract types to an index file.

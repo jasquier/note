@@ -12,10 +12,7 @@ export async function listNotes(db: Database, topic?: string): Promise<void> {
     "SELECT notes.id AS noteId, notes.content AS content, notes.timestamp AS noteTimestamp, topics.id AS topicId, topics.name AS topic, topics.timestamp as topicTimestamp FROM notes JOIN notes_topics ON notes.id=notes_topics.note_id JOIN topics ON topics.id=notes_topics.topic_id ORDER BY notes.timestamp"
   );
 
-  const topics = await selectRows<Topic>(
-    db,
-    "SELECT DISTINCT topics.name as topic FROM notes JOIN notes_topics ON notes.id=notes_topics.note_id JOIN topics ON topics.id=notes_topics.topic_id ORDER BY notes.timestamp"
-  );
+  const topics = await selectTopics(db);
 
   log("listNotes(): notes ", notes);
   log("listNotes(): topics ", topics);
@@ -49,10 +46,24 @@ export async function listTopics(
   topic: string | boolean
 ): Promise<void> {
   if (typeof topic === "boolean") {
-    console.log("\n    Coming soon: Listing all topics!");
+    const topics = await selectTopics(db);
+    console.log();
+    topics
+      .map((t) => t.topic)
+      .forEach((t) => {
+        console.log(`    - ${chalk.green(t)}`);
+      });
     return;
   }
+
   await listNotes(db, topic);
+}
+
+async function selectTopics(db: Database) {
+  return await selectRows<Topic>(
+    db,
+    "SELECT DISTINCT topics.name as topic FROM notes JOIN notes_topics ON notes.id=notes_topics.note_id JOIN topics ON topics.id=notes_topics.topic_id ORDER BY notes.timestamp"
+  );
 }
 
 // Runs the given select sql statement and returns the resulting rows
