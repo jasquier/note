@@ -21,7 +21,7 @@ export async function listNotes(db: Database, topic?: string): Promise<void> {
       ON notes.id=notes_topics.note_id
     JOIN topics
       ON topics.id=notes_topics.topic_id
-    ORDER BY notes.timestamp`
+    ORDER BY notes.timestamp`,
   );
 
   const topics = await selectTopics(db);
@@ -37,7 +37,7 @@ export async function listNotes(db: Database, topic?: string): Promise<void> {
 function printNotes(
   notes: NoteSummary[],
   topics: Topic[],
-  topic: string | undefined
+  topic: string | undefined,
 ): void {
   console.log();
   topics
@@ -52,7 +52,7 @@ function printNotes(
         .filter((note) => note.topic === t)
         .sort(
           (a: NoteSummary, b: NoteSummary): number =>
-            Date.parse(a.noteTimestamp) - Date.parse(b.noteTimestamp)
+            Date.parse(a.noteTimestamp) - Date.parse(b.noteTimestamp),
         )
         .forEach((note) => {
           console.log(`        - ${note.content}`);
@@ -63,7 +63,7 @@ function printNotes(
 // List all topics or delegate to listing notes under a topic
 export async function listTopics(
   db: Database,
-  topic: string | boolean
+  topic: string | boolean,
 ): Promise<void> {
   if (typeof topic === "boolean") {
     const topics = await selectTopics(db);
@@ -96,14 +96,14 @@ async function selectTopics(db: Database): Promise<Topic[]> {
       ON notes.id=notes_topics.note_id
     JOIN topics
       ON topics.id=notes_topics.topic_id
-    ORDER BY notes.timestamp`
+    ORDER BY notes.timestamp`,
   );
 }
 
 // Runs the given select sql statement and returns the resulting rows
 function selectRows<ResultType>(
   db: Database,
-  sql: SelectStatement
+  sql: SelectStatement,
 ): Promise<ResultType[]> {
   log(`selectRows(): sql - ${sql}`);
 

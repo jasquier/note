@@ -40,7 +40,7 @@ describe("saving a note", () => {
     const [topic] = await run<Topic>("SELECT id, name FROM topics");
     const [note] = await run<Note>("SELECT id, content FROM notes");
     const [link] = await run<Link>(
-      "SELECT note_id, topic_id FROM notes_topics"
+      "SELECT note_id, topic_id FROM notes_topics",
     );
 
     expect(topic.name).toBe("general");

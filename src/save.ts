@@ -8,7 +8,7 @@ const log = debug("save");
 export async function saveNote(
   db: Database,
   topic: string,
-  note: string
+  note: string,
 ): Promise<void> {
   const topicId = await getTopicId(db, topic);
   const noteId = await insertNote(db, note);
@@ -33,13 +33,13 @@ function insertNote(db: Database, name: string): Promise<number> {
 function linkNoteToTopic(
   db: Database,
   noteId: number,
-  topicId: number
+  topicId: number,
 ): Promise<number> {
   return insert(
     db,
     "INSERT INTO notes_topics (note_id, topic_id) VALUES (?, ?)",
     noteId,
-    topicId
+    topicId,
   );
 }
 
