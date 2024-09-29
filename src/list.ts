@@ -37,7 +37,7 @@ export async function listNotes(db: Database, topic?: string): Promise<void> {
 function printNotes(
   notes: NoteSummary[],
   topics: Topic[],
-  topic: string | undefined,
+  topic?: string,
 ): void {
   console.log();
   topics
